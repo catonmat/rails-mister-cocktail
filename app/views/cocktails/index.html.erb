@@ -1,0 +1,18 @@
+<p>Hello</p>
+<%= link_to("Create Cocktail", new_cocktail_path) %>
+
+
+  <% @cocktails.each do |cocktail| %>
+  <div class="cocktail-card">
+    <div class="resaurant-card-top">
+      <img src="https://source.unsplash.com/user/moniqa/200x200?<%= rand %>">
+    </div>
+    <div class="cocktail-card-bottom">
+      <p id="cocktail-name"><%= cocktail.name %></p>
+      <%= link_to("View More Info", cocktail_path(cocktail.id)) %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

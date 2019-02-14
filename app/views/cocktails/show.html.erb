@@ -1,0 +1,18 @@
+<!-- Cocktail/show -->
+<div class="header" style="background-image: url('https://source.unsplash.com/user/geostablephl/1400x800')">
+  <h2><%= @cocktail.name %></h2>
+  <div class="back-button">
+    <%= link_to("<<< Back", cocktails_path)%>
+  </div>
+</div>
+<hr>
+<%= link_to("Create Dose", new_cocktail_dose_path(@cocktail)) %>
+<hr>
+<p style="text-align: center;">Doses</p>
+<div class="main-container">
+  <% @cocktail.doses.each do |doses| %>
+    <div class="review-card">
+      <p><%= doses.description %> of <%= @cocktail.ingredients.name  %></p>
+    </div>
+  <% end %>
+</div>

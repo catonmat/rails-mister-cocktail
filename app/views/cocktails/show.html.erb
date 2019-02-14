@@ -10,9 +10,10 @@
 <hr>
 <p style="text-align: center;">Doses</p>
 <div class="main-container">
-  <% @cocktail.doses.each do |doses| %>
+  <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
+  <% cocktail_hash.each do |ingredient, dose| %>
     <div class="review-card">
-      <p><%= doses.description %> of <%= @cocktail.ingredients.name  %></p>
+      <p><%= dose.description %> of <%= ingredient.name %></p>
     </div>
   <% end %>
 </div>

@@ -1,0 +1,18 @@
+development:
+  cloud_name: dtmuylvrr
+  api_key: '883186261457643'
+  api_secret: aNpVhZb5Rpy2YntxWeAQEyG7G8Y
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dtmuylvrr
+  api_key: '883186261457643'
+  api_secret: aNpVhZb5Rpy2YntxWeAQEyG7G8Y
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dtmuylvrr
+  api_key: '883186261457643'
+  api_secret: aNpVhZb5Rpy2YntxWeAQEyG7G8Y
+  enhance_image_tag: true
+  static_file_support: false

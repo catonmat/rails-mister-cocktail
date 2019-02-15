@@ -10,7 +10,7 @@
 <h2 style="text-align: center;">Cocktail Count: <%= @cocktails.size %></h2>
 
 <div class="main-container">
-  <% @cocktails.each do |cocktail| %>
+  <% @cocktails.reverse_each do |cocktail| %>
     <div class="cocktail-card">
     <div class="cocktail-card-top">
       <div class="cocktail-card-top-image">

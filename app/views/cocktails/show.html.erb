@@ -7,6 +7,11 @@
 
     <%= link_to("<<< Go Back", cocktails_path, {id: "show-back-button"})%><br>
     <div class="col-sm-12 col-md-6">
+
+      <% if @cocktail.image.nil? %>
+        <%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY", height: 500, crop: :fill) %>
+      <% end %>
+
       <div id="large-image" class="cocktail-info-card" style="background-image: linear-gradient(-270deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.2) 100%), url('<%=@cocktail.image%>')">
         <h2><%= @cocktail.name %></h2>
       </div>

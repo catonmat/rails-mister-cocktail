@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# Seed gems
+gem 'json'
+gem 'faker'
+
 # Front-end gems
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.7'

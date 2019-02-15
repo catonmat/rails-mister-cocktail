@@ -5,28 +5,26 @@
 <div class="container relative-margin">
   <div class="row">
 
-    <%= link_to("<<< Back", cocktails_path)%><br>
+    <%= link_to("<<< Go Back", cocktails_path, {id: "show-back-button"})%><br>
     <div class="col-sm-12 col-md-6">
-      <div id="large-image" class="cocktail-info-card" style="background-image: url(<%=@cocktail.image%>)">
+      <div id="large-image" class="cocktail-info-card" style="background-image: linear-gradient(-270deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.2) 100%), url('<%=@cocktail.image%>')">
         <h2><%= @cocktail.name %></h2>
       </div>
     </div>
 
     <div class="col-sm-12 col-md-6">
-      <div style="display: flex; flex-direction: column;">
-        <div class="cocktail-info-card">
-          <h4 style="text-align: center;">Instructions</h4>
-          <p><%= @cocktail.instructions %></p>
-        </div>
-
-        <div class="cocktail-info-card">
-          <h4>Recipe:</h4>
-          <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
-          <% cocktail_hash.each do |ingredient, dose| %>
-            <p><%= dose.description %> of <%= ingredient.name %></p>
-          <% end %>
-          <%= link_to("Modify Recipe", new_cocktail_dose_path(@cocktail)) %>
-        </div>
+      <div class="cocktail-info-card">
+        <h4 style="text-align: center;">Instructions</h4>
+        <p><%= @cocktail.instructions %></p>
+        <hr>
+        <h4>Recipe:</h4>
+        <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
+        <% cocktail_hash.each do |ingredient, dose| %>
+          <p><%= dose.description %> of <%= ingredient.name %></p>
+        <% end %>
+        <span class="form-dose">
+        <%= render "cocktails/form_dose" %>
+        </span>
       </div>
     </div>
 

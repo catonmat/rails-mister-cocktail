@@ -2,7 +2,9 @@
 <div class="header">
   <h1>Mister Cocktail</h1>
   <p>Missed a Cocktail? Ask Mister Cocktail!</p>
-  <%= link_to("Create Cocktail", new_cocktail_path) %>
+  <span class="cocktails-form">
+    <%= render "form_cocktail" %>
+  </span>
 </div>
 
 <h2 style="text-align: center;">Cocktail Count: <%= @cocktails.size %></h2>

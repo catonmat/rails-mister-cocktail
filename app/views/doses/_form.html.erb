@@ -1,0 +1,18 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <% if @dose.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @dose.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% f.hidden_field :cocktail_id, :value => @cocktail_id %>
+  <% f.hidden_field :ingredient_id, :value => @ingredient_id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :ingredient_id %>
+  <%= f.association :ingredient %>
+  <%= f.submit %>
+<% end %>

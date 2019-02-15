@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
-require "JSON"
+require "json"
 # require "pry-byebug"
 
 # API List: https://forum.kodi.tv/showthread.php?tid=235298

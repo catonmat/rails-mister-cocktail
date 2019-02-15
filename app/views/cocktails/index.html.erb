@@ -1,26 +1,23 @@
-
 <!-- cocktails/index -->
-
 <div class="header">
   <h1>Mister Cocktail</h1>
   <p>Missed a Cocktail? Ask Mister Cocktail!</p>
   <%= link_to("Create Cocktail", new_cocktail_path) %>
 </div>
+
 <h2 style="text-align: center;">Cocktail Count: <%= @cocktails.size %></h2>
-
-
 
 <div class="main-container">
   <% @cocktails.each do |cocktail| %>
-  <div class="restaurant-card">
-    <div class="resaurant-card-top">
-      <div class="restaurant-card-top-image">
-        <img src="<%= cocktail.image %>" height=200 widht=200">
+    <div class="cocktail-card">
+    <div class="cocktail-card-top">
+      <div class="cocktail-card-top-image">
+        <img src="<%= cocktail.image %>" height=200 width=200">
       </div>
     </div>
-    <div class="restaurant-card-bottom">
+    <div class="cocktail-card-bottom">
       <p id="cocktail-name"><%= cocktail.name %></p>
-      <%= link_to("View More Info", cocktail_path(cocktail.id)) %>
+      <%= link_to("Find out more", cocktail_path(cocktail))%>
     </div>
   </div>
   <% end %>

@@ -1,20 +1,48 @@
 <!-- Cocktail/show -->
-<div class="header" style="background-image: url('https://source.unsplash.com/user/geostablephl/1400x800')">
-  <h2><%= @cocktail.name %></h2>
-  <div class="back-button">
-    <%= link_to("<<< Back", cocktails_path)%>
+
+<div class="header"></div>
+
+<div class="container relative-margin">
+  <div class="row">
+
+    <%= link_to("<<< Back", cocktails_path)%><br>
+    <div class="col-sm-12 col-md-6">
+      <div id="large-image" class="cocktail-info-card" style="background-image: url(<%=@cocktail.image%>)">
+        <h2><%= @cocktail.name %></h2>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <div style="display: flex; flex-direction: column;">
+        <div class="cocktail-info-card">
+          <h4 style="text-align: center;">Instructions</h4>
+          <p><%= @cocktail.instructions %></p>
+        </div>
+
+        <div class="cocktail-info-card">
+          <h4>Recipe:</h4>
+          <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
+          <% cocktail_hash.each do |ingredient, dose| %>
+            <p><%= dose.description %> of <%= ingredient.name %></p>
+          <% end %>
+          <%= link_to("Modify Recipe", new_cocktail_dose_path(@cocktail)) %>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
   </div>
 </div>
-<hr>
-<%= link_to("Create Dose", new_cocktail_dose_path(@cocktail)) %>
-<hr>
-<p style="text-align: center;">Instructions</p>
-<div class="main-container">
-  <p><%= @cocktail.instructions %></p>
-  <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
-  <% cocktail_hash.each do |ingredient, dose| %>
-    <div class="review-card">
-      <p><%= dose.description %> of <%= ingredient.name %></p>
-    </div>
-  <% end %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+

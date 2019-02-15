@@ -1,0 +1,45 @@
+body {
+  background-color: white;
+}
+
+.relative-margin {
+  position: relative;
+  top: -30vh;
+}
+
+.show-container {
+  z-index: 1;
+  display: flex;
+  margin-top: -30vh;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+.header {
+  z-index: 0;
+}
+
+.cocktail-info-card {
+  background-color: white;
+  z-index: 1;
+  opacity: 1;
+}
+
+#large-image {
+  color: white;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  border: 1px solid black;
+}
+
+#large-image h2 {
+  position: absolute;
+  top: 1px;
+  left: 20px;
+}

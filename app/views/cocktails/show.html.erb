@@ -8,8 +8,9 @@
 <hr>
 <%= link_to("Create Dose", new_cocktail_dose_path(@cocktail)) %>
 <hr>
-<p style="text-align: center;">Doses</p>
+<p style="text-align: center;">Instructions</p>
 <div class="main-container">
+  <p><%= @cocktail.instructions %></p>
   <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
   <% cocktail_hash.each do |ingredient, dose| %>
     <div class="review-card">

@@ -9,7 +9,8 @@ require "open-uri"
 require "JSON"
 # require "pry-byebug"
 
-# Full API: https://forum.kodi.tv/showthread.php?tid=235298
+# API List: https://forum.kodi.tv/showthread.php?tid=235298
+# Current API : https://www.thecocktaildb.com/api/json/v1/1/random.php
 
 # Cocktails API
 def validator(hash_value)
@@ -45,8 +46,9 @@ end
   cocktail_name = cocktail_data["strDrink"]
   cocktail_hash = create_dose_ingredient_hash(cocktail_data)
   image_url = cocktail_data["strDrinkThumb"]
+  cocktail_instructions = cocktail_data["strInstructions"]
 
-  new_cocktail = Cocktail.find_or_create_by(name: cocktail_name, image: image_url)
+  new_cocktail = Cocktail.find_or_create_by(name: cocktail_name, image: image_url, instructions: cocktail_instructions)
 
   cocktail_hash.each do |ingredient, dose|
     new_ingredient = Ingredient.find_or_create_by(name: ingredient)

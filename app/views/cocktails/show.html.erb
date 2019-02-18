@@ -9,6 +9,9 @@
     <div class="col-sm-12 col-md-6">
 
       <div id="large-image" class="cocktail-info-card" style="background-image: linear-gradient(-270deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.2) 100%), url('<%=@cocktail.image%>')">
+        <% if @cocktail.image.nil? %>
+          <%= cl_image_tag @cocktail.photo, height: 500, crop: :fill unless @cocktail.photo.blank? %>
+        <% end %>
         <h2><%= @cocktail.name %></h2>
       </div>
     </div>
@@ -17,6 +20,14 @@
       <div class="cocktail-info-card">
         <h4 style="text-align: center;">Instructions</h4>
         <p><%= @cocktail.instructions %></p>
+
+        <%= simple_form_for(@cocktail) do |f| %>
+          <%= f.input :instructions%>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.button :submit, class: "btn btn-success" %>
+        <% end %>
+
         <hr>
         <h4>Recipe:</h4>
         <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>

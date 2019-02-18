@@ -5,6 +5,16 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
   end
 
+  def update
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.update(cocktail_params)
+    if @cocktail.save
+      redirect_to(cocktail_path(@cocktail))
+    else
+      render "show"
+    end
+  end
+
   def new
     @cocktail = Cocktail.new
   end
@@ -29,6 +39,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :photo)
+    params.require(:cocktail).permit(:name, :photo, :instructions)
   end
 end

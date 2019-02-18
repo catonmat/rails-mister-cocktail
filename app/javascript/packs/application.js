@@ -8,5 +8,27 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import 'bootstrap';
+import { loadDynamicBannerText } from '../components/banner';
 
 console.log('Hello World from Webpacker')
+
+loadDynamicBannerText();
+
+const btnCreateCocktail = document.getElementById("btn-create-cocktail");
+const simpleFormCocktailName = document.getElementById("cocktail_name");
+const simpleFormCocktailSubmit = document.getElementById("btn-simpleform-create-cocktail");
+const swalCreateCocktailName = () => {
+  swal("Enter your cocktail name:", {
+    content: "input",
+  })
+  .then((value) => {
+    simpleFormCocktailName.value = value;
+    setTimeout(500);
+    simpleFormCocktailSubmit.click();
+  })
+};
+
+btnCreateCocktail.addEventListener("click", (event) => {
+  swalCreateCocktailName();
+});
+

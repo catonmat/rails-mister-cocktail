@@ -12,6 +12,6 @@
   <% f.hidden_field :ingredient_id, :value => @ingredient_id %>
   <%= f.label :Quantity %>
   <%= f.text_field :description, placeholder: "1 shot, 1 slice, etc"%>
-  <%= f.association :ingredient, prompt: "Choose and ingredient" %>
+  <%= f.association :ingredient, prompt: "Choose an ingredient" %>
   <%= f.button :submit, class: "btn btn-danger" %>
 <% end %>

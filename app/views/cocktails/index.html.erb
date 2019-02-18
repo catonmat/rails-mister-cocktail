@@ -1,10 +1,17 @@
 <!-- cocktails/index -->
 <div class="header">
   <h1>Mister Cocktail</h1>
-  <p>Missed a Cocktail? Ask Mister Cocktail!</p>
+  <!-- <p>Missed a Cocktail? Ask Mister Cocktail!</p> -->
+  <span id="banner-typed-text"></span>
   <span class="cocktails-form">
-    <%= render "form_cocktail" %>
+    <p></p>
+    <button class="btn btn-success" id="btn-create-cocktail">Create A Cocktail!</button>
   </span>
+</div>
+
+<div class="hidden">
+
+    <%= render "form_cocktail" %>
 </div>
 
 <h2 style="text-align: center;">Cocktail Count: <%= @cocktails.size %></h2>

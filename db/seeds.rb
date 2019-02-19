@@ -48,7 +48,7 @@ end
   image_url = cocktail_data["strDrinkThumb"]
   cocktail_instructions = cocktail_data["strInstructions"]
 
-  new_cocktail = Cocktail.find_or_create_by(name: cocktail_name, image: image_url, instructions: cocktail_instructions)
+  new_cocktail = Cocktail.find_or_create_by(name: cocktail_name, photo: image_url, instructions: cocktail_instructions)
 
   cocktail_hash.each do |ingredient, dose|
     new_ingredient = Ingredient.find_or_create_by(name: ingredient)

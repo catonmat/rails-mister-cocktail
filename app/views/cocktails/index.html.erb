@@ -17,11 +17,15 @@
 <h2 style="text-align: center;">Cocktail Count: <%= @cocktails.size %></h2>
 
 <div class="main-container">
-  <% @cocktails.each do |cocktail| %>
+  <% @cocktails.reverse_each do |cocktail| %>
     <div class="cocktail-card">
     <div class="cocktail-card-top">
       <div class="cocktail-card-top-image">
-        <img src="<%= cocktail.image %>" height=200 width=200">
+        <% if cocktail.image.nil? %>
+          <img src="<%= cocktail.photo %>" height=200 width=200">
+        <% else %>
+          <img src="<%= cocktail.image %>" height=200 width=200">
+        <% end %>
       </div>
     </div>
     <div class="cocktail-card-bottom">

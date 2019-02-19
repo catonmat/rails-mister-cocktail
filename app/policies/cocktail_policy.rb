@@ -1,9 +1,9 @@
 class CocktailPolicy < ApplicationPolicy
-  def show
+  def show?
     true
   end
 
-  def new
+  def new?
     true
   end
 
@@ -15,11 +15,11 @@ class CocktailPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def update
+  def update?
     record.user == user
   end
 
-  def destroy
+  def destroy?
     record.user == user
   end
 

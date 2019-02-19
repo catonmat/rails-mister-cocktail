@@ -2,7 +2,6 @@ class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-
     @cocktail = Cocktail.new
     @cocktails = Cocktail.all
     @cocktails = policy_scope(Cocktail)
@@ -30,6 +29,7 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    authorize(@cocktail)
     @dose = Dose.new
     @ingredient = @cocktail.ingredients
   end
@@ -37,7 +37,8 @@ class CocktailsController < ApplicationController
   def create
     @cocktails = Cocktail.all
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail = @current_user
+    @cocktail.user = current_user
+    authorize(@cocktail)
     # @cocktail.id = params[:id]
     if @cocktail.save
       redirect_to(cocktail_path(@cocktail), notice: "Cocktail was successfully created.")

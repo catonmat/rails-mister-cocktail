@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-# Devise
+# Authentication and Authorisation
 gem 'devise'
+gem 'pundit'
 
 # Seed gems
 gem 'json'

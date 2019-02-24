@@ -6,6 +6,13 @@
   <span class="cocktails-form">
     <p></p>
     <button class="btn btn-success" id="btn-create-cocktail">Create A Cocktail!</button>
+    <%= form_tag cocktails_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a cocktail"
+      %>
+    <% end %>
   </span>
 </div>
 

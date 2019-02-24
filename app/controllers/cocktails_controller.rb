@@ -2,14 +2,25 @@ class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cocktail = Cocktail.new
-    @cocktails = Cocktail.all
-    @cocktails = policy_scope(Cocktail)
+    if params[:query].present?
+      sql_query = <<-SQL
+        name ILIKE :query
+        OR instructions ILIKE :query
+        OR ingredients.name ILIKE :query
+      SQL
+      @cocktail = Cocktail.new
+      @cocktails = Cocktail.joins(:ingredients).where(sql_query, query: "%#{params[:query]}%")
+      @cocktails = policy_scope(@cocktails)
+    else
+      @cocktail = Cocktail.new
+      @cocktails = Cocktail.all
+      @cocktails = policy_scope(@cocktails)
+    end
   end
 
   def update
-    authorize(@cocktail)
     @cocktail = Cocktail.find(params[:id])
+    authorize(@cocktail)
     @cocktail.update(cocktail_params)
     if @cocktail.save
       redirect_to(cocktail_path(@cocktail))

@@ -5,6 +5,7 @@ ruby '2.5.3'
 
 # Search bars
 gem 'pg_search'
+gem "algoliasearch-rails"
 
 # Authentication and Authorisation
 gem 'devise'

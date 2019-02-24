@@ -3,15 +3,19 @@ class CocktailsController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = <<-SQL
-        name @@ :query
-        OR instructions @@ :query
-        OR ingredients_name @@ :query
-      SQL
-      @cocktail = Cocktail.new
-      @cocktails = Cocktail.joins(:ingredients).where(sql_query, query: "%#{params[:query]}%")
+      # sql_query = <<-SQL
+      #   name @@ :query
+      #   OR instructions @@ :query
+      #   OR ingredients_name @@ :query
+      # SQL
+      # @cocktail = Cocktail.new
+      # @cocktails = Cocktail.joins(:ingredients).where(sql_query, query: "%#{params[:query]}%")
+      # @cocktails = policy_scope(@cocktails)
+
+      @cocktails = Cocktail.search_by_name_and_ingredients_name(params[:query])
       @cocktails = policy_scope(@cocktails)
 
+      # # Multi Search
       # @cocktails = PgSearch.multisearch(params[:query])
       # @cocktails = policy_scope(@cocktails)
     else

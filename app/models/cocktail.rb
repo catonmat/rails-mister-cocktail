@@ -11,10 +11,11 @@ class Cocktail < ApplicationRecord
   pg_search_scope :search_by_name_and_ingredients_name,
     against: [:name],
     associated_against: {
-      ingredients: [:ingredients_name]
+      ingredients: [:ingredients_name],
+      doses: [:description]
     },
     using: {
-    tsearch: { prefix: true }
+      tsearch: { prefix: true }
     }
 
   multisearchable against: [ :name, :instructions ]

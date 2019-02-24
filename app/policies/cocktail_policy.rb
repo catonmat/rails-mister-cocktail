@@ -1,4 +1,8 @@
 class CocktailPolicy < ApplicationPolicy
+  def index
+    true
+  end
+
   def show?
     true
   end
@@ -8,7 +12,7 @@ class CocktailPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
   end
 
   def edit?

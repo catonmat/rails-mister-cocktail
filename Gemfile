@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# Search bars
+gem 'pg_search'
+
 # Authentication and Authorisation
 gem 'devise'
 gem 'pundit'

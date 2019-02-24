@@ -37,7 +37,7 @@
         <h4>Recipe:</h4>
         <% cocktail_hash = Hash[@cocktail.ingredients.zip(@cocktail.doses)] %>
         <% cocktail_hash.each do |ingredient, dose| %>
-          <p><%= dose.description %> of <%= ingredient.name %></p>
+          <p><%= dose.description %> of <%= ingredient.ingredients_name %></p>
         <% end %>
         <span class="form-dose">
         <%= render "cocktails/form_dose" %>
